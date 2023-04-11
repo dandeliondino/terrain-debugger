@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqclqaf4unw0v"]
+
+[ext_resource type="Script" path="res://addons/terrain_debugger/controls/more_info_button.gd" id="1_5fob7"]
+
+[node name="MoreInfoButton" type="Button"]
+toggle_mode = true
+text = "[more information]"
+flat = true
+script = ExtResource("1_5fob7")

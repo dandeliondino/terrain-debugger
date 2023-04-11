@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpf1gc2f0o1su"]
+
+[ext_resource type="Script" path="res://addons/terrain_debugger/controls/scored_tiles_panel.gd" id="1_e8i1m"]
+[ext_resource type="PackedScene" uid="uid://cqclqaf4unw0v" path="res://addons/terrain_debugger/controls/more_info_button.tscn" id="2_lnjrc"]
+
+[node name="ScoredTilesPanel" type="Panel"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_e8i1m")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Scored Tiles"
+horizontal_alignment = 1
+
+[node name="MoreInfoButton" parent="VBoxContainer" instance=ExtResource("2_lnjrc")]
+layout_mode = 2
+node_path = NodePath("../Label2")
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Before being scored, tiles are sorted by their center terrain, then peering bit terrains, with terrains higher in the list coming first. They retain this order after they are scored, and only the first tile per score has a chance of being chosen. This means that, between two tiles with the same score, terrain order in the terrain set determines which is chosen."
+autowrap_mode = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScoreListContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 8

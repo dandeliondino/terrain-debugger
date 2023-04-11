@@ -1,0 +1,67 @@
+[gd_scene load_steps=2 format=3 uid="uid://cobtlow28qrqi"]
+
+[ext_resource type="Script" path="res://addons/terrain_debugger/controls/target_tile_display.gd" id="1_jkgem"]
+
+[node name="TargetTileDisplay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_jkgem")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BitContainer" type="GridContainer" parent="AspectRatioContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 3
+
+[connection signal="mouse_entered" from="AspectRatioContainer/BitContainer/BitButton" to="AspectRatioContainer/BitContainer/BitButton" method="_on_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="AspectRatioContainer/BitContainer/BitButton" to="AspectRatioContainer/BitContainer/BitButton" method="_on_mouse_exited" flags=18]
+[connection signal="pressed" from="AspectRatioContainer/BitContainer/BitButton" to="AspectRatioContainer/BitContainer/BitButton" method="_on_pressed" flags=18]
+[connection signal="toggled" from="AspectRatioContainer/BitContainer/BitButton" to="AspectRatioContainer/BitContainer/BitButton" method="_on_toggled" flags=18]
+[connection signal="mouse_entered" from="AspectRatioContainer/BitContainer/@BitButton@485753" to="AspectRatioContainer/BitContainer/@BitButton@485753" method="_on_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="AspectRatioContainer/BitContainer/@BitButton@485753" to="AspectRatioContainer/BitContainer/@BitButton@485753" method="_on_mouse_exited" flags=18]
+[connection signal="pressed" from="AspectRatioContainer/BitContainer/@BitButton@485753" to="AspectRatioContainer/BitContainer/@BitButton@485753" method="_on_pressed" flags=18]
+[connection signal="toggled" from="AspectRatioContainer/BitContainer/@BitButton@485753" to="AspectRatioContainer/BitContainer/@BitButton@485753" method="_on_toggled" flags=18]
+[connection signal="mouse_entered" from="AspectRatioContainer/BitContainer/@BitButton@485754" to="AspectRatioContainer/BitContainer/@BitButton@485754" method="_on_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="AspectRatioContainer/BitContainer/@BitButton@485754" to="AspectRatioContainer/BitContainer/@BitButton@485754" method="_on_mouse_exited" flags=18]
+[connection signal="pressed" from="AspectRatioContainer/BitContainer/@BitButton@485754" to="AspectRatioContainer/BitContainer/@BitButton@485754" method="_on_pressed" flags=18]
+[connection signal="toggled" from="AspectRatioContainer/BitContainer/@BitButton@485754" to="AspectRatioContainer/BitContainer/@BitButton@485754" method="_on_toggled" flags=18]
+[connection signal="mouse_entered" from="AspectRatioContainer/BitContainer/@BitButton@485755" to="AspectRatioContainer/BitContainer/@BitButton@485755" method="_on_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="AspectRatioContainer/BitContainer/@BitButton@485755" to="AspectRatioContainer/BitContainer/@BitButton@485755" method="_on_mouse_exited" flags=18]
+[connection signal="pressed" from="AspectRatioContainer/BitContainer/@BitButton@485755" to="AspectRatioContainer/BitContainer/@BitButton@485755" method="_on_pressed" flags=18]
+[connection signal="toggled" from="AspectRatioContainer/BitContainer/@BitButton@485755" to="AspectRatioContainer/BitContainer/@BitButton@485755" method="_on_toggled" flags=18]
+[connection signal="mouse_entered" from="AspectRatioContainer/BitContainer/@BitButton@485756" to="AspectRatioContainer/BitContainer/@BitButton@485756" method="_on_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="AspectRatioContainer/BitContainer/@BitButton@485756" to="AspectRatioContainer/BitContainer/@BitButton@485756" method="_on_mouse_exited" flags=18]
+[connection signal="pressed" from="AspectRatioContainer/BitContainer/@BitButton@485756" to="AspectRatioContainer/BitContainer/@BitButton@485756" method="_on_pressed" flags=18]
+[connection signal="toggled" from="AspectRatioContainer/BitContainer/@BitButton@485756" to="AspectRatioContainer/BitContainer/@BitButton@485756" method="_on_toggled" flags=18]
+[connection signal="mouse_entered" from="AspectRatioContainer/BitContainer/@BitButton@485757" to="AspectRatioContainer/BitContainer/@BitButton@485757" method="_on_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="AspectRatioContainer/BitContainer/@BitButton@485757" to="AspectRatioContainer/BitContainer/@BitButton@485757" method="_on_mouse_exited" flags=18]
+[connection signal="pressed" from="AspectRatioContainer/BitContainer/@BitButton@485757" to="AspectRatioContainer/BitContainer/@BitButton@485757" method="_on_pressed" flags=18]
+[connection signal="toggled" from="AspectRatioContainer/BitContainer/@BitButton@485757" to="AspectRatioContainer/BitContainer/@BitButton@485757" method="_on_toggled" flags=18]
+[connection signal="mouse_entered" from="AspectRatioContainer/BitContainer/@BitButton@485758" to="AspectRatioContainer/BitContainer/@BitButton@485758" method="_on_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="AspectRatioContainer/BitContainer/@BitButton@485758" to="AspectRatioContainer/BitContainer/@BitButton@485758" method="_on_mouse_exited" flags=18]
+[connection signal="pressed" from="AspectRatioContainer/BitContainer/@BitButton@485758" to="AspectRatioContainer/BitContainer/@BitButton@485758" method="_on_pressed" flags=18]
+[connection signal="toggled" from="AspectRatioContainer/BitContainer/@BitButton@485758" to="AspectRatioContainer/BitContainer/@BitButton@485758" method="_on_toggled" flags=18]
+[connection signal="mouse_entered" from="AspectRatioContainer/BitContainer/@BitButton@485759" to="AspectRatioContainer/BitContainer/@BitButton@485759" method="_on_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="AspectRatioContainer/BitContainer/@BitButton@485759" to="AspectRatioContainer/BitContainer/@BitButton@485759" method="_on_mouse_exited" flags=18]
+[connection signal="pressed" from="AspectRatioContainer/BitContainer/@BitButton@485759" to="AspectRatioContainer/BitContainer/@BitButton@485759" method="_on_pressed" flags=18]
+[connection signal="toggled" from="AspectRatioContainer/BitContainer/@BitButton@485759" to="AspectRatioContainer/BitContainer/@BitButton@485759" method="_on_toggled" flags=18]
+[connection signal="mouse_entered" from="AspectRatioContainer/BitContainer/@BitButton@485760" to="AspectRatioContainer/BitContainer/@BitButton@485760" method="_on_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="AspectRatioContainer/BitContainer/@BitButton@485760" to="AspectRatioContainer/BitContainer/@BitButton@485760" method="_on_mouse_exited" flags=18]
+[connection signal="pressed" from="AspectRatioContainer/BitContainer/@BitButton@485760" to="AspectRatioContainer/BitContainer/@BitButton@485760" method="_on_pressed" flags=18]
+[connection signal="toggled" from="AspectRatioContainer/BitContainer/@BitButton@485760" to="AspectRatioContainer/BitContainer/@BitButton@485760" method="_on_toggled" flags=18]

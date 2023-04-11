@@ -1,0 +1,113 @@
+[gd_scene load_steps=2 format=3 uid="uid://dm7pu63lihbbl"]
+
+[ext_resource type="Script" path="res://addons/terrain_debugger/controls/snapshot_tile_display.gd" id="1_7e2fu"]
+
+[node name="SnapshotTileDisplay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_7e2fu")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BorderRect" type="ColorRect" parent="AspectRatioContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+color = Color(1, 0.0627451, 1, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 3
+
+[node name="BitContainer" type="GridContainer" parent="AspectRatioContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 3
+
+[node name="EditedIcon" type="TextureRect" parent="AspectRatioContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+stretch_mode = 2
+
+[node name="IndexLabel" type="Label" parent="."]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 1
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="AspectRatioContainer/MarginContainer/BitContainer/BitButton" to="AspectRatioContainer/MarginContainer/BitContainer/BitButton" method="_on_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="AspectRatioContainer/MarginContainer/BitContainer/BitButton" to="AspectRatioContainer/MarginContainer/BitContainer/BitButton" method="_on_mouse_exited" flags=18]
+[connection signal="pressed" from="AspectRatioContainer/MarginContainer/BitContainer/BitButton" to="AspectRatioContainer/MarginContainer/BitContainer/BitButton" method="_on_pressed" flags=18]
+[connection signal="toggled" from="AspectRatioContainer/MarginContainer/BitContainer/BitButton" to="AspectRatioContainer/MarginContainer/BitContainer/BitButton" method="_on_toggled" flags=18]
+[connection signal="mouse_entered" from="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135145" to="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135145" method="_on_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135145" to="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135145" method="_on_mouse_exited" flags=18]
+[connection signal="pressed" from="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135145" to="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135145" method="_on_pressed" flags=18]
+[connection signal="toggled" from="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135145" to="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135145" method="_on_toggled" flags=18]
+[connection signal="mouse_entered" from="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135146" to="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135146" method="_on_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135146" to="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135146" method="_on_mouse_exited" flags=18]
+[connection signal="pressed" from="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135146" to="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135146" method="_on_pressed" flags=18]
+[connection signal="toggled" from="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135146" to="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135146" method="_on_toggled" flags=18]
+[connection signal="mouse_entered" from="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135147" to="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135147" method="_on_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135147" to="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135147" method="_on_mouse_exited" flags=18]
+[connection signal="pressed" from="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135147" to="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135147" method="_on_pressed" flags=18]
+[connection signal="toggled" from="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135147" to="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135147" method="_on_toggled" flags=18]
+[connection signal="mouse_entered" from="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135148" to="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135148" method="_on_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135148" to="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135148" method="_on_mouse_exited" flags=18]
+[connection signal="pressed" from="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135148" to="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135148" method="_on_pressed" flags=18]
+[connection signal="toggled" from="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135148" to="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135148" method="_on_toggled" flags=18]
+[connection signal="mouse_entered" from="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135149" to="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135149" method="_on_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135149" to="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135149" method="_on_mouse_exited" flags=18]
+[connection signal="pressed" from="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135149" to="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135149" method="_on_pressed" flags=18]
+[connection signal="toggled" from="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135149" to="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135149" method="_on_toggled" flags=18]
+[connection signal="mouse_entered" from="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135150" to="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135150" method="_on_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135150" to="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135150" method="_on_mouse_exited" flags=18]
+[connection signal="pressed" from="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135150" to="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135150" method="_on_pressed" flags=18]
+[connection signal="toggled" from="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135150" to="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135150" method="_on_toggled" flags=18]
+[connection signal="mouse_entered" from="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135151" to="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135151" method="_on_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135151" to="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135151" method="_on_mouse_exited" flags=18]
+[connection signal="pressed" from="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135151" to="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135151" method="_on_pressed" flags=18]
+[connection signal="toggled" from="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135151" to="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135151" method="_on_toggled" flags=18]
+[connection signal="mouse_entered" from="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135152" to="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135152" method="_on_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135152" to="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135152" method="_on_mouse_exited" flags=18]
+[connection signal="pressed" from="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135152" to="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135152" method="_on_pressed" flags=18]
+[connection signal="toggled" from="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135152" to="AspectRatioContainer/MarginContainer/BitContainer/@BitButton@135152" method="_on_toggled" flags=18]

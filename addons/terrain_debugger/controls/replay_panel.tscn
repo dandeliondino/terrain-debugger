@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqlgkbegsckhc"]
+
+[ext_resource type="Script" path="res://addons/terrain_debugger/controls/replay_panel.gd" id="1_wrk06"]
+[ext_resource type="PackedScene" uid="uid://cqclqaf4unw0v" path="res://addons/terrain_debugger/controls/more_info_button.tscn" id="2_kng3l"]
+
+[node name="ReplayPanel" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+script = ExtResource("1_wrk06")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Replay"
+horizontal_alignment = 1
+
+[node name="MoreInfoButton" parent="VBoxContainer" instance=ExtResource("2_kng3l")]
+layout_mode = 2
+node_path = NodePath("../Label2")
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "The algorithm iterates over all the terrain tiles in the TileSet and either discards them or assigns scores (higher score = worse match). It then iterates over the scored tiles and chooses the one with the lowest score."
+autowrap_mode = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "1. Score potential tiles"
+
+[node name="ResultsTree" type="Tree" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+columns = 2
+hide_root = true
+scroll_horizontal_enabled = false
+scroll_vertical_enabled = false
+
+[node name="Label2" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "2. Choose tile with lowest score"
+
+[node name="TilesContainer" type="GridContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/v_separation = 32
+columns = 3

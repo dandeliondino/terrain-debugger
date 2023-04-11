@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4gu0jttl11o5"]
+
+[ext_resource type="Script" path="res://addons/terrain_debugger/controls/terrain_debugger.gd" id="1_o7t3r"]
+[ext_resource type="PackedScene" uid="uid://il4acbd47r38" path="res://addons/terrain_debugger/controls/tile_state_panel.tscn" id="2_bk4t2"]
+[ext_resource type="PackedScene" uid="uid://bqlgkbegsckhc" path="res://addons/terrain_debugger/controls/replay_panel.tscn" id="3_xwty1"]
+[ext_resource type="PackedScene" uid="uid://cpf1gc2f0o1su" path="res://addons/terrain_debugger/controls/scored_tiles_panel.tscn" id="5_2pbtj"]
+
+[node name="TerrainDebugger" type="Control"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o7t3r")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TileStatePanel" parent="HSplitContainer" instance=ExtResource("2_bk4t2")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSplitContainer" type="HSplitContainer" parent="HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="ReplayPanel" parent="HSplitContainer/HSplitContainer" instance=ExtResource("3_xwty1")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ScoredTilesPanel" parent="HSplitContainer/HSplitContainer" instance=ExtResource("5_2pbtj")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3

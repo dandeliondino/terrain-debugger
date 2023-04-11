@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://ct2qy3i4ol8e0"]
+
+[ext_resource type="PackedScene" uid="uid://dtowsqu3ld6x0" path="res://addons/terrain_debugger/controls/score_button.tscn" id="1_4mf7w"]
+[ext_resource type="Script" path="res://addons/terrain_debugger/controls/scored_tiles_section.gd" id="1_mkxtk"]
+
+[node name="ScoredTilesSection" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mkxtk")
+
+[node name="ScoreButton" parent="." instance=ExtResource("1_4mf7w")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+
+[node name="ScoredTilesContainer" type="VBoxContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2

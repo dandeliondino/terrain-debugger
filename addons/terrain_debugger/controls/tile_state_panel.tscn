@@ -1,0 +1,90 @@
+[gd_scene load_steps=3 format=3 uid="uid://il4acbd47r38"]
+
+[ext_resource type="Script" path="res://addons/terrain_debugger/controls/tile_state_panel.gd" id="1_uxesu"]
+[ext_resource type="PackedScene" uid="uid://cqclqaf4unw0v" path="res://addons/terrain_debugger/controls/more_info_button.tscn" id="2_u156g"]
+
+[node name="TileStatePanel" type="Panel"]
+custom_minimum_size = Vector2(200, 200)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uxesu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Snapshot"
+horizontal_alignment = 1
+
+[node name="SelectedTileLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MoreInfoButton" parent="VBoxContainer" instance=ExtResource("2_u156g")]
+layout_mode = 2
+text = "[more info]"
+node_path = NodePath("../Label")
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "The center tile's bits represent the constraints assigned by the algorithm. Hover over for tooltips that reveal the reasons they were chosen.
+
+Neighboring tiles are shown in the state they were in at the time this tile was chosen. User-assigned terrain bits are shown for reference -- the center tile's constraints are a more accurate view of what the algorithm is taking into account when choosing this tile."
+autowrap_mode = 3
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TilesContainer" type="GridContainer" parent="VBoxContainer/AspectRatioContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 3
+columns = 3
+
+[node name="ShowBitsCheckbutton" type="CheckButton" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+text = "Show neighbor bits"
+
+[connection signal="gui_input" from="VBoxContainer/AspectRatioContainer/TilesContainer/SnapshotTileDisplay" to="VBoxContainer/AspectRatioContainer/TilesContainer/SnapshotTileDisplay" method="_on_gui_input" flags=18]
+[connection signal="mouse_entered" from="VBoxContainer/AspectRatioContainer/TilesContainer/SnapshotTileDisplay" to="VBoxContainer/AspectRatioContainer/TilesContainer/SnapshotTileDisplay" method="_on_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="VBoxContainer/AspectRatioContainer/TilesContainer/SnapshotTileDisplay" to="VBoxContainer/AspectRatioContainer/TilesContainer/SnapshotTileDisplay" method="_on_mouse_exited" flags=18]
+[connection signal="gui_input" from="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174020" to="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174020" method="_on_gui_input" flags=18]
+[connection signal="mouse_entered" from="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174020" to="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174020" method="_on_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174020" to="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174020" method="_on_mouse_exited" flags=18]
+[connection signal="gui_input" from="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174029" to="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174029" method="_on_gui_input" flags=18]
+[connection signal="mouse_entered" from="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174029" to="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174029" method="_on_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174029" to="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174029" method="_on_mouse_exited" flags=18]
+[connection signal="gui_input" from="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174038" to="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174038" method="_on_gui_input" flags=18]
+[connection signal="mouse_entered" from="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174038" to="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174038" method="_on_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174038" to="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174038" method="_on_mouse_exited" flags=18]
+[connection signal="gui_input" from="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174055" to="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174055" method="_on_gui_input" flags=18]
+[connection signal="mouse_entered" from="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174055" to="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174055" method="_on_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174055" to="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174055" method="_on_mouse_exited" flags=18]
+[connection signal="gui_input" from="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174064" to="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174064" method="_on_gui_input" flags=18]
+[connection signal="mouse_entered" from="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174064" to="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174064" method="_on_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174064" to="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174064" method="_on_mouse_exited" flags=18]
+[connection signal="gui_input" from="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174073" to="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174073" method="_on_gui_input" flags=18]
+[connection signal="mouse_entered" from="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174073" to="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174073" method="_on_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174073" to="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174073" method="_on_mouse_exited" flags=18]
+[connection signal="gui_input" from="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174082" to="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174082" method="_on_gui_input" flags=18]
+[connection signal="mouse_entered" from="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174082" to="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174082" method="_on_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174082" to="VBoxContainer/AspectRatioContainer/TilesContainer/@SnapshotTileDisplay@174082" method="_on_mouse_exited" flags=18]
+[connection signal="toggled" from="VBoxContainer/ShowBitsCheckbutton" to="." method="_on_show_bits_checkbutton_toggled"]
