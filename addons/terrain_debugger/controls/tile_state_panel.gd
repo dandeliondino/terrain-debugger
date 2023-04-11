@@ -47,7 +47,6 @@ func _ready() -> void:
 
 func update(p_coords : Vector2i, results_by_coords : Dictionary, context : Context) -> void:
 	_reset_tiles()
-#	_sort_bits(results_by_coords[p_coords]["evaluated_terrain_bits"], results_by_coords.keys())
 	
 	var selected_tile_results : Dictionary = results_by_coords[p_coords]
 	var selected_tile_index : int = selected_tile_results["index"]
@@ -68,6 +67,7 @@ func update(p_coords : Vector2i, results_by_coords : Dictionary, context : Conte
 		
 		var tile : Dictionary
 		var updated : bool
+		var tile_bits : Dictionary
 		
 		if index == selected_tile_index:
 			tile_display.update(
@@ -77,15 +77,25 @@ func update(p_coords : Vector2i, results_by_coords : Dictionary, context : Conte
 			continue
 		elif index < selected_tile_index:
 			tile = neighbor_results["selected_tile"]
+			tile_bits = context.get_tile_bits(tile["source_id"], tile["atlas_coords"])
 			updated = true
 		elif index > selected_tile_index:
 			tile = neighbor_results["previous_tile"]
+			if context.is_tile_painted(coords):
+				tile_bits = {Globals.CENTER_BIT_ID: 
+					{
+						"terrain": context.painted_terrain,
+						"priority": Globals.PAINTED_PRIORITY,
+					}
+				}
+			else:
+				tile_bits = context.get_tile_bits(tile["source_id"], tile["atlas_coords"])
 			updated = false
 
 		tile_display.update(
 			tile,
 			index,
-			context.get_tile_bits(tile["source_id"], tile["atlas_coords"]),
+			tile_bits,
 			updated,
 			context,
 		)
@@ -102,7 +112,6 @@ func _toggle_bit_visibility(value : bool) -> void:
 			continue
 		var tile_display : SnapshotTileDisplay = _tile_displays[bit]
 		tile_display.toggle_bit_visibility(value)
-
 
 
 func _populate_tiles_container() -> void:

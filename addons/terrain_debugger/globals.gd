@@ -15,6 +15,7 @@ const NULL_TERRAIN := -99
 const NULL_PRIORITY := -1
 const NULL_ORIGIN := -1
 const REQUIRED_PRIORITY := 999
+const PAINTED_PRIORITY := 998
 const CENTER_BIT_ID := 99
 
 # ICONS
