@@ -26,6 +26,8 @@ const OriginTexts := {
 	TileMap.ORIGIN_DEFAULT_TO_CURRENT_TILE: "Defaulted to match bits of cell's previous tile",
 }
 
+const Globals := preload("res://addons/terrain_debugger/globals.gd")
+
 
 # updated below
 var state_colors := {
@@ -145,8 +147,12 @@ func _update_priority() -> void:
 		return
 	
 	_priority_container.show()
+	
 	if _priority == REQUIRED_BIT_PRIORITY:
 		_priority_icon.texture = get_theme_icon("Lock", "EditorIcons")
+		_priority_icon.show()
+	elif _priority == Globals.PAINTED_PRIORITY:
+		_priority_icon.texture = get_theme_icon("CanvasItem", "EditorIcons")
 		_priority_icon.show()
 	else:
 		_priority_label.text = _get_priority_string()

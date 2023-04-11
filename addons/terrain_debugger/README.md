@@ -59,10 +59,24 @@ An unexpected transition?
 
 ## Limitations
 Terrain Debugger can be used with square tilesets in any mode, but it does not support:
-    - alternative tiles
-    - non-square tiles
-    - multiple layers (tiles must be on layer 0)
+- alternative tiles
+- non-square tiles
+- multiple layers (tiles must be on layer 0)
 
+
+## Known Bugs and Workarounds
+*This is a niche tool that won't require frequent use, so I am not planning a lot of updates or bug fixes, especially if bugs can be worked around.*
+
+- If your TileMap is selected before you enable the Terrain Debugger plugin, you will need to select another object in the scene, then re-open the TileMap in order for the plugin to work.
+- Clicking on the tiles overlay can be finicky; sometimes it will paint a new tile or close the terrain overlay. 
+    - Workaround: Re-paint the tile and try again. 
+    - Note: Once the Terrain Debugger bottom panel is open with a selected tile, you can use the snapshot view to navigate to neighboring tiles, which is more reliable.
+- Large tile updates cause noticeable lag, and can cause the Terrain Debugger to silently fail (ex. drawing a large rectangle)
+    - Workaround: Often, if you try again, it will work. Or try painting a smaller area.
+- The overlay can be annoying if you don't need it. I recommend placing your background tiles with the plugin disabled, then enabling it and painting the tile(s) you want to inspect. Remember that you will need to select another object, then go back to the TileMap for the Terrain Debugger to work.
+- To handle to expand the bottom panel is located below the Terrain Debugger info panel.
+
+[![Screenshot of the bottom panel dragger location](screenshots/drag_location.png)]
 
 ## License
 The Terrain Debugger plugin is covered by the MIT license in this repository.
