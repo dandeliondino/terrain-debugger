@@ -19,11 +19,11 @@ func _ready() -> void:
 
 func update(results : Dictionary, context : Context) -> void:
 	reset()
-	
+
 	var results_by_score := _get_results_by_score(results)
 	var sorted_scores := results_by_score.keys().duplicate()
 	sorted_scores.sort_custom(func (a,b): return a < b)
-	
+
 	var first_section := true
 
 	for score in sorted_scores:
@@ -36,7 +36,7 @@ func update(results : Dictionary, context : Context) -> void:
 func reset() -> void:
 	for child in score_list_container.get_children():
 		child.queue_free()
-	
+
 
 func _get_results_by_score(results : Dictionary) -> Dictionary:
 	var results_by_score := {}

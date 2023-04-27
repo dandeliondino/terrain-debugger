@@ -80,8 +80,8 @@ func _ready() -> void:
 func toggle_bit_visibility(value : bool) -> void:
 	bit_container.visible = value
 
-	
-func reset() -> void:	
+
+func reset() -> void:
 	for bit_button in bit_buttons.values():
 		bit_button.reset()
 
@@ -94,7 +94,7 @@ func _update_tile_size() -> void:
 func _populate_bit_buttons() -> void:
 	for child in bit_container.get_children():
 		child.queue_free()
-	
+
 	for bit in GridBits:
 		var bit_button : BitButton = BitButtonControl.instantiate()
 		bit_container.add_child(bit_button)

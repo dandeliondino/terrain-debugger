@@ -10,8 +10,8 @@ func update(results : Dictionary, context : Context) -> void:
 		var bit_properties : Dictionary = results["target_bits"][bit]
 		var terrain : int = bit_properties["terrain"]
 		bit_button.setup(
-			context.terrain_colors[terrain], 
-			bit_properties["priority"], 
+			context.terrain_colors[terrain],
+			bit_properties["priority"],
 			bit_properties["origin"],
 		)
 		bit_button.show()

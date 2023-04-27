@@ -104,7 +104,7 @@ func has_tooltip_data() -> bool:
 func toggle_transparency(value : bool) -> void:
 	if _color_rect.color == Color.TRANSPARENT:
 		return
-		
+
 	if value:
 		_color_rect.color.a = TRANSPARENT_ALPHA
 	else:
@@ -126,10 +126,10 @@ func _update_button_state() -> void:
 func _update_color_rect() -> void:
 	if !is_instance_valid(_color_rect):
 		return
-	
+
 	_color_rect.color = _color
 
-	
+
 	state_colors[State.NORMAL] = _color
 	state_colors[State.HOVER] = _color.lightened(0.2)
 	state_colors[State.PRESSED] = _color.lightened(0.2)
@@ -138,16 +138,16 @@ func _update_color_rect() -> void:
 func _update_priority() -> void:
 	if !is_instance_valid(_priority_label):
 		return
-	
+
 	_priority_container.hide()
 	_priority_label.hide()
 	_priority_icon.hide()
-	
+
 	if _priority == NULL_PRIORITY:
 		return
-	
+
 	_priority_container.show()
-	
+
 	if _priority == REQUIRED_BIT_PRIORITY:
 		_priority_icon.texture = get_theme_icon("Lock", "EditorIcons")
 		_priority_icon.show()
@@ -169,13 +169,13 @@ func _update_more_info_text() -> void:
 func _get_priority_string(verbose := false) -> String:
 	if _priority == NULL_PRIORITY:
 		return ""
-	
+
 	if _priority == REQUIRED_BIT_PRIORITY:
 		if verbose:
 			return REQUIRED_BIT_STRING_VERBOSE
 		else:
 			return REQUIRED_BIT_STRING
-	
+
 	return str(_priority)
 
 

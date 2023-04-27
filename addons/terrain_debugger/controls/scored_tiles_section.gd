@@ -27,7 +27,7 @@ func setup(score : int, p_tiles : Array, p_tile_size : Vector2i, p_context : Con
 	tiles = p_tiles
 	tile_size = p_tile_size
 	context = p_context
-	
+
 	if not ready_complete:
 		await ready
 
