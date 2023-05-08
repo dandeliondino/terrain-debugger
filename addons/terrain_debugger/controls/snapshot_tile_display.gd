@@ -31,24 +31,24 @@ func update(tile : Dictionary, index : int, tile_bits : Dictionary, updated : bo
 		else:
 			_populate_colors(Globals.ERROR_COLOR)
 	_update_color()
-	
+
 	_update_index_label(index)
-	
+
 	texture_rect.texture_filter = context.tile_map.texture_filter
 	texture_rect.texture = context.get_tile_texture(tile["source_id"], tile["atlas_coords"])
-	
+
 	for bit in tile_bits:
 		var bit_button : BitButton = bit_buttons[bit]
 		var bit_properties : Dictionary = tile_bits[bit]
 		var terrain : int = bit_properties["terrain"]
 		bit_button.setup(
-			context.terrain_colors[terrain], 
-			bit_properties.get("priority", BitButton.NULL_PRIORITY), 
+			context.terrain_colors[terrain],
+			bit_properties.get("priority", BitButton.NULL_PRIORITY),
 			bit_properties.get("origin", BitButton.NULL_ORIGIN),
 		)
 		bit_button.toggle_transparency(true)
 		bit_button.show()
-	
+
 	_empty_tile = false
 
 
@@ -93,7 +93,7 @@ func _update_index_label(index : int) -> void:
 	index_label.text = str(index)
 	index_label.set("theme_override_fonts/font", get_theme_font("doc_title", "EditorFonts"))
 	index_label.set("theme_override_font_sizes/font_size", get_theme_font_size("doc_title_size", "EditorFonts") * 3)
-	
+
 
 func _update_tile_size() -> void:
 	texture_rect.custom_minimum_size = tile_size
@@ -127,7 +127,7 @@ func _on_mouse_exited() -> void:
 func _on_gui_input(event: InputEvent) -> void:
 	if _empty_tile:
 		return
-		
+
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT && event.pressed:
 			set_selected(true)

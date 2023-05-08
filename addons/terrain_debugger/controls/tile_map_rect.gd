@@ -37,18 +37,18 @@ func _ready() -> void:
 
 func setup() -> void:
 	coords = result["coords"]
-	
+
 #	var label := Label.new()
 #	add_child(label)
 #	label.text = "46"
-	
+
 	if result["selected_tile"]["score"] == 0:
 		_populate_colors(Globals.SUCCESS_COLOR)
 		status_icon.texture = control.get_theme_icon("StatusSuccess", "EditorIcons")
 	else:
 		_populate_colors(Globals.ERROR_COLOR)
 		status_icon.texture = control.get_theme_icon("StatusError", "EditorIcons")
-	
+
 	if context.is_tile_painted(coords):
 		print("tile is painted")
 		painted_icon.texture = control.get_theme_icon(Globals.PAINTED_ICON, "EditorIcons")
@@ -56,14 +56,14 @@ func setup() -> void:
 		painted_icon.show()
 	else:
 		painted_icon.hide()
-	
+
 	index_label.text = str(result["index"])
 	index_label.set("theme_override_colors/font_color", Color.WHITE)
 	index_label.set("theme_override_fonts/font", control.get_theme_font("doc_title", "EditorFonts"))
 	index_label.set("theme_override_font_sizes/font_size", control.get_theme_font_size("doc_title_size", "EditorFonts"))
 	index_label.scale = Vector2(0.25, 0.25)
-	
-	
+
+
 	_update_color()
 	_update_position.call_deferred()
 
@@ -91,7 +91,7 @@ func _set_color(color : Color) -> void:
 	border_color = color
 	index_label.set("theme_override_colors/font_color", color.lightened(0.2))
 
-	
+
 func _update_position() -> void:
 	var pos_offset := Vector2(border_width, border_width)
 	position = (context.tile_map.map_to_local(coords) - Vector2(context.tile_size/2)) + pos_offset

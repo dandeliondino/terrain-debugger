@@ -14,7 +14,7 @@ func _ready() -> void:
 func _toggle(value : bool) -> void:
 	if !is_instance_valid(node):
 		return
-		
+
 	if value:
 		node.show()
 		text = "[less info]"

@@ -6,9 +6,9 @@ const SCALE_FACTOR := Vector2i(4,4)
 const Globals := preload("res://addons/terrain_debugger/globals.gd")
 const Legend := preload("res://addons/terrain_debugger/controls/legend.gd")
 
-const Context := preload("res://addons/terrain_debugger/controls/terrain_debugger.gd").Context
+#const Context := preload("res://addons/terrain_debugger/controls/terrain_debugger.gd").Context
 
-var context : Context
+var context
 var results_by_coords : Dictionary
 var scaled_tile_size : Vector2i
 
@@ -24,28 +24,28 @@ func _ready() -> void:
 	_setup_legend()
 
 
-func setup(p_results_by_coords : Dictionary, p_context : Context) -> void:
+func setup(p_results_by_coords : Dictionary, p_context) -> void:
 	context = p_context
 	results_by_coords = p_results_by_coords
-	
+
 	_setup_texture("previous_tile", before_rect, true)
 	_setup_texture("selected_tile", after_rect, false)
 
 
 func _setup_texture(tile_key : String, texture_rect : TextureRect, substitute_painted := false) -> void:
 	scaled_tile_size = context.tile_size * SCALE_FACTOR
-	var coords_rect := _get_tile_rect(results_by_coords)
+	var coords_rect := _get_tile_rect()
 	var image_size = (coords_rect.size * scaled_tile_size) + scaled_tile_size
 	var image := Image.create(image_size.x, image_size.y, false, context.image_format)
-	
+
 	var filter : int
 	if context.tile_map.texture_filter == TEXTURE_FILTER_LINEAR:
 		filter = Image.INTERPOLATE_BILINEAR
 	else:
 		filter = Image.INTERPOLATE_NEAREST
-	
+
 	var painted_image := _get_painted_image()
-	
+
 	for coords in results_by_coords:
 		var tile_image : Image
 		if substitute_painted && context.is_tile_painted(coords):
@@ -67,7 +67,7 @@ func _coords_to_pos(coords : Vector2i, coords_offset : Vector2i, tile_size : Vec
 	var pos := adj_coords * tile_size
 	return pos
 
-	
+
 func _get_painted_image() -> Image:
 	var image := Image.create(scaled_tile_size.x, scaled_tile_size.y, false, context.image_format)
 	var color_rect := Rect2i(Vector2i.ZERO, scaled_tile_size).grow(-4)
@@ -80,7 +80,7 @@ func _get_painted_image() -> Image:
 	return image
 
 
-func _get_tile_rect(results_by_coords : Dictionary) -> Rect2i:
+func _get_tile_rect() -> Rect2i:
 	var sorted_coords := results_by_coords.keys().duplicate()
 	sorted_coords.sort_custom(func(a,b): return a.x < b.x)
 	var x_pos : int = sorted_coords.front().x

@@ -47,28 +47,28 @@ func _ready() -> void:
 
 func update(p_coords : Vector2i, results_by_coords : Dictionary, context : Context) -> void:
 	_reset_tiles()
-	
+
 	var selected_tile_results : Dictionary = results_by_coords[p_coords]
 	var selected_tile_index : int = selected_tile_results["index"]
-	
+
 	selected_tile_label.text = "[ %s ]" % selected_tile_index
 	selected_tile_label.set("theme_override_colors/font_color", Globals.SELECTED_COLOR)
-	
+
 	for neighbor in _tile_displays:
 		var coords : Vector2i = p_coords + tile_directions[neighbor]
 		var tile_display = _tile_displays[neighbor]
-		
+
 		if !results_by_coords.has(coords):
 			tile_display.update_empty_tile(context)
 			continue
-		
+
 		var neighbor_results : Dictionary = results_by_coords[coords]
 		var index : int = neighbor_results["index"]
-		
+
 		var tile : Dictionary
 		var updated : bool
 		var tile_bits : Dictionary
-		
+
 		if index == selected_tile_index:
 			tile_display.update(
 				selected_tile_results,
@@ -82,7 +82,7 @@ func update(p_coords : Vector2i, results_by_coords : Dictionary, context : Conte
 		elif index > selected_tile_index:
 			tile = neighbor_results["previous_tile"]
 			if context.is_tile_painted(coords):
-				tile_bits = {Globals.CENTER_BIT_ID: 
+				tile_bits = {Globals.CENTER_BIT_ID:
 					{
 						"terrain": context.painted_terrain,
 						"priority": Globals.PAINTED_PRIORITY,
@@ -99,7 +99,7 @@ func update(p_coords : Vector2i, results_by_coords : Dictionary, context : Conte
 			updated,
 			context,
 		)
-		
+
 		# connect with new coords
 		if tile_display.pressed.is_connected(_on_neighbor_tile_display_pressed):
 			tile_display.pressed.disconnect(_on_neighbor_tile_display_pressed)
@@ -118,7 +118,7 @@ func _populate_tiles_container() -> void:
 	_tile_displays.clear()
 	for child in tiles_container.get_children():
 		child.queue_free()
-	
+
 	for neighbor in tile_directions:
 		var tile_display : Control
 		if neighbor == SnapshotTileDisplay.TerrainBits.CENTER:
@@ -126,7 +126,7 @@ func _populate_tiles_container() -> void:
 		else:
 			tile_display = SnapshotTileDisplayControl.instantiate()
 		tiles_container.add_child(tile_display)
-		
+
 		_tile_displays[neighbor] = tile_display
 
 	await get_tree().process_frame
